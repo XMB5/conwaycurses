@@ -9,6 +9,8 @@
 #define COLOR_SQUARE_ON 2
 
 int main() {
+    srand(time(NULL));
+    
     initscr();
     nonl();
     cbreak();
@@ -59,6 +61,9 @@ int main() {
             switch (c) {
                 case 'q':
                     goto end;
+                case 'r':
+                    for (int i = 0; i < ((width * height) / 4); i++)
+                        (*board)[rand() % height][rand() % width] = 1;
             }
         }
         erase();
